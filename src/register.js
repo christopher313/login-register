@@ -152,7 +152,7 @@ const Register = () => {
             >
               <FontAwesomeIcon icon={faInfoCircle} />
               <br />
-              Lettres, nombres, caractères spéciales.
+              Le mail doit contenir un @ + . + fr,com,etc.
             </p>
 
             <label htmlFor="password">
