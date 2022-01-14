@@ -151,9 +151,6 @@ const Register = () => {
               className={emailFocus && email && !validEmail ? "on" : "off"}
             >
               <FontAwesomeIcon icon={faInfoCircle} />
-              4 à 24 charactères.
-              <br />
-              Doit avoir une lettre.
               <br />
               Lettres, nombres, caractères spéciales.
             </p>
