@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
-import AuthContexte from "./context/AuthProvider";
 import axios from "./api/axios";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Link } from "react-router-dom";
@@ -8,7 +7,6 @@ const LOGIN_URL = "/api/v1/auth/login";
 
 function Login() {
   //variables
-  const { setAuth } = useContext(AuthContexte);
   const userRef = useRef();
   const errRef = useRef();
 
@@ -29,7 +27,6 @@ function Login() {
     axios
       .post(LOGIN_URL, { email: email, password: password })
       .then((response) => {
-        setAuth({ email, password });
         setEmail("");
         setPassword("");
         setSuccesMsg(true);

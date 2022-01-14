@@ -77,7 +77,7 @@ const Register = () => {
           password: password,
         });
         console.log(reponse);
-        acceptTerms(true);
+        setAcceptTerms(true);
       })
       .catch((error) => {
         console.log(error);
