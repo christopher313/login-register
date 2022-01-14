@@ -4,7 +4,7 @@ import axios from "./api/axios";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
-const LOGIN_URL = "api/v1/auth/login";
+const LOGIN_URL = "/api/v1/auth/login";
 
 function Login() {
   //variables
@@ -25,43 +25,26 @@ function Login() {
     setErrorMsg("");
   }, [email, password]);
   //affiche les entrées du formulaire d'inscription
-  const handleSubmit = async (event) => {
-    try {
-      const reponse = await axios.post(
-        LOGIN_URL,
-        JSON.stringify({
-          email,
-          password,
-        }),
-        {
-          headers: { "Content-type": "application/json" },
-          withCredentials: true,
-        }
-      );
-      console.log(JSON.stringify(reponse?.data));
-      const accesToken = reponse?.data?.accesToken;
-      setAuth({ email, password, accesToken });
-      setEmail("");
-      setPassword("");
-      setSuccesMsg(true);
-    } catch (error) {
-      if (!error?.reponse) {
-        setErrorMsg("Le serveur ne répond pas");
-      } else if (error.reponse?.status === 400) {
-        setErrorMsg("erreur, mot de passe ou email incorrectes");
-      } else if (error.reponse?.status === 401) {
-        setErrorMsg("Connection non autorisé");
-      } else if (error.reponse?.status === 404) {
-        setErrorMsg("Requête Post impossible");
-      } else {
-        setErrorMsg("erreur...");
-      }
-      errRef.current.focus();
-    }
+  const handleSubmit = (event) => {
+    axios
+      .post(LOGIN_URL, { email: email, password: password })
+      .then((response) => {
+        setAuth({ email, password });
+        setEmail("");
+        setPassword("");
+        setSuccesMsg(true);
+        localStorage.setItem("token", { email, password });
+        console.log(response.data);
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
-    console.log(`
-Email: ${email}
-Password: ${password}`);
+    console.log(
+      `Email: ${email}
+      Password: ${password}`
+    );
 
     event.preventDefault();
   };

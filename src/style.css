@@ -12,7 +12,6 @@ body {
 /*accueil*/
 .nav-accueil {
   width: 100%;
-  height: 50px;
   display: flex;
   justify-content: space-between;
   background-color: #00a8f3;
@@ -42,6 +41,7 @@ body {
 
 .form-login-register {
   margin: auto;
+  width: 500px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -70,18 +70,44 @@ body {
   font-size: 0.8em;
 }
 .form-login-register button {
-  width: 100%;
+  width: 100px;
   padding: 5px;
   margin-top: 10px;
   font-size: 0.8em;
 }
 .linksPages {
-  margin-right: 10px;
+  margin-top: 20px;
   display: flex;
   justify-content: left;
-  text-decoration: none;
   color: white;
 }
 .linksPages:hover {
   color: #00a8f3;
+}
+
+.form-login-register .hidden {
+  display: none;
+}
+
+.form-login-register .on {
+  border: 5px solid #2f79bb;
+  background-color: #2d83ce;
+  padding: 5px;
+  color: white;
+}
+
+.form-login-register .off {
+  position: absolute;
+  left: -9999px;
+}
+.form-login-register .valid {
+  color: green;
+  margin-left: 10px;
+}
+.form-login-register .invalid {
+  color: red;
+  margin-left: 10px;
+}
+.form-login-register .errormessage {
+  color: red;
 }
