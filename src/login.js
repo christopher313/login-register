@@ -26,14 +26,14 @@ function Login() {
   const handleSubmit = (event) => {
     axios
       .post(LOGIN_URL, { email: email, password: password })
-      .then((response) => {
+      .then((reponse) => {
         setEmail("");
         setPassword("");
         setSuccesMsg(true);
         localStorage.setItem("user", { token: token });
         console.log(reponse);
         const token = reponse.data.token;
-        console.log(response);
+        console.log(reponse);
       })
       .catch((error) => {
         console.log(error);
