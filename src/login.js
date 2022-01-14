@@ -30,8 +30,9 @@ function Login() {
         setEmail("");
         setPassword("");
         setSuccesMsg(true);
-        localStorage.setItem("User", { email: email, password: password });
-        console.log(response.data);
+        localStorage.setItem("user", { token: token });
+        console.log(reponse);
+        const token = reponse.data.token;
         console.log(response);
       })
       .catch((error) => {

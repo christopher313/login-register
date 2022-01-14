@@ -71,12 +71,9 @@ const Register = () => {
     axios
       .post(REGISTER_URL, { name: name, email: email, password: password })
       .then((reponse) => {
-        localStorage.setItem("user", {
-          name: name,
-          email: email,
-          password: password,
-        });
+        localStorage.setItem("user", { token: token });
         console.log(reponse);
+        const token = reponse.data.token;
         setAcceptTerms(true);
       })
       .catch((error) => {
