@@ -33,7 +33,7 @@ function Login() {
         setEmail("");
         setPassword("");
         setSuccesMsg(true);
-        localStorage.setItem("token", { email, password });
+        localStorage.setItem("User", { email: email, password: password });
         console.log(response.data);
         console.log(response);
       })
