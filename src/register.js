@@ -9,7 +9,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import bcrypt from "bcryptjs";
-
 //Chemin vers l'API
 const REGISTER_URL = "/register";
 
