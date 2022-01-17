@@ -26,13 +26,12 @@ function Login() {
   //affiche les entrées du formulaire d'inscription
   const handleSubmit = (event) => {
     axios
-      .post(LOGIN_URL, { email: email })
+      .get(LOGIN_URL, { email: email })
       .then((reponse) => {
         setEmail("");
         setPassword("");
         setSuccesMsg(true);
         localStorage.setItem("user", { email: email });
-        console.log(reponse);
         console.log(reponse);
       })
       .catch((error) => {
