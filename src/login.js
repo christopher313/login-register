@@ -26,7 +26,7 @@ function Login() {
   //affiche les entrées du formulaire d'inscription
   const handleSubmit = (event) => {
     axios
-      .get(LOGIN_URL, { email: email })
+      .post(LOGIN_URL, { email: email })
       .then((reponse) => {
         setEmail("");
         setPassword("");
