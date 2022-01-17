@@ -10,7 +10,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 //Chemin vers l'API
-const REGISTER_URL = "/api/v1/auth/register";
+const REGISTER_URL = "/register";
 
 const EMAIL_REGEX = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
 const PASSWORD_REGEX = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
@@ -69,11 +69,10 @@ const Register = () => {
     console.log(email, password);
     setSuccess(true);
     axios
-      .post(REGISTER_URL, { name: name, email: email, password: password })
+      .post(REGISTER_URL, { name: name, email: email })
       .then((reponse) => {
-        localStorage.setItem("user", { token: token });
+        window.localStorage.setItem("user", { name: name, email: email });
         console.log(reponse);
-        const token = reponse.data.token;
         setAcceptTerms(true);
       })
       .catch((error) => {
@@ -94,7 +93,7 @@ const Register = () => {
 
       {success ? (
         <section className="section-login-register">
-          <p>Enregistrement réussi</p>
+          <h1>Enregistrement réussi</h1>
         </section>
       ) : (
         <section className="section-login-register">

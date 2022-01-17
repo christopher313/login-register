@@ -1,12 +1,13 @@
-import React, { useState, useRef, useEffect, useContext } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import axios from "./api/axios";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
-const LOGIN_URL = "/api/v1/auth/login";
+const LOGIN_URL = "/login";
 
 function Login() {
   //variables
+
   const userRef = useRef();
   const errRef = useRef();
 
@@ -25,15 +26,14 @@ function Login() {
   //affiche les entrées du formulaire d'inscription
   const handleSubmit = (event) => {
     axios
-      .post(LOGIN_URL, { email: email, password: password })
-      .then((response) => {
+      .post(LOGIN_URL, { email: email })
+      .then((reponse) => {
         setEmail("");
         setPassword("");
         setSuccesMsg(true);
-        localStorage.setItem("user", { token: token });
+        localStorage.setItem("user", { email: email });
         console.log(reponse);
-        const token = reponse.data.token;
-        console.log(response);
+        console.log(reponse);
       })
       .catch((error) => {
         console.log(error);
@@ -56,7 +56,9 @@ function Login() {
         </Helmet>
       </HelmetProvider>
       {succesMsg ? (
-        <h1>Connexion réussi</h1>
+        <section className="section-login-register">
+          <h1>Connexion réussi</h1>
+        </section>
       ) : (
         <section className="section-login-register">
           <form
