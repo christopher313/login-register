@@ -1,6 +1,7 @@
 import React from "react";
 import Login from "./login.js";
 import Register from "./register.js";
+import Terms from "./terms.js";
 import { BrowserRouter, Link, Route } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
@@ -10,6 +11,7 @@ function App() {
       <Route path="/" component={Home}></Route>
       <Route path="/login" component={Login}></Route>
       <Route path="/register" component={Register}></Route>
+      <Route path="/terms" component={Terms}></Route>
     </BrowserRouter>
   );
 }

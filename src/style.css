@@ -14,7 +14,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: #00a8f3;
+  background-color: #2d83ce;
 }
 
 .linksPagesAccueil {
@@ -45,7 +45,7 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background: #00a8f3;
+  background: #2d83ce;
   padding: 10px;
 }
 
@@ -112,4 +112,31 @@ body {
 }
 .form-login-register .errormessage {
   color: red;
+}
+
+/* page condtions d'utilisations */
+
+.Block-terms {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+
+.Artcile-Terms {
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 25px;
+  background-color: #2d83ce;
+  padding: 15px;
+}
+.Artcile-Terms h1 {
+  color: white;
+  margin-bottom: 5px;
+}
+.Artcile-Terms p {
+  color: white;
+  margin-bottom: 20px;
 }

@@ -225,14 +225,16 @@ const Register = () => {
               required
             ></input>
             <label>
-              <input
-                name="terms"
-                type="checkbox"
-                value={acceptTerms}
-                onChange={(e) => setAcceptTerms(e.target.value)}
-                required
-              ></input>
-              J'accepte les termes d'utilisations
+              <Link to="/terms" className="linksPages">
+                <input
+                  name="terms"
+                  type="checkbox"
+                  value={acceptTerms}
+                  onChange={(e) => setAcceptTerms(e.target.value)}
+                  required
+                ></input>
+                J'accepte les termes d'utilisations
+              </Link>
             </label>
             <button
               disabled={
