@@ -67,6 +67,10 @@ const Register = () => {
     var salt = bcrypt.genSaltSync(10);
     var hash = bcrypt.hashSync(password, salt);
 
+    if (!testEmail || !testPassword) {
+      setErrorMsg("problèmes avec le regex");
+      return;
+    }
     console.log(email, password);
     setSuccess(true);
     axios
@@ -76,6 +80,7 @@ const Register = () => {
           name: name,
           email: email,
         });
+        console.log(reponse);
         setAcceptTerms(true);
       })
       .catch((error) => {
