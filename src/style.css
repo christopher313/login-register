@@ -45,6 +45,8 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  background: #00a8f3;
+  padding: 10px;
 }
 
 .form-login-register label {
@@ -82,7 +84,7 @@ body {
   color: white;
 }
 .linksPages:hover {
-  color: #00a8f3;
+  color: #1f7da7;
 }
 
 .form-login-register .hidden {
