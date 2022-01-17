@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import axios from "./api/axios";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import bcrypt from "bcryptjs";
 
 const LOGIN_URL = "/login";
 
@@ -25,8 +26,10 @@ function Login() {
   }, [email, password]);
   //affiche les entrées du formulaire d'inscription
   const handleSubmit = (event) => {
+    var salt = bcrypt.genSaltSync(10);
+    var hash = bcrypt.hashSync(password, salt);
     axios
-      .post(LOGIN_URL, { email: email })
+      .post(LOGIN_URL, { email: email, password: hash })
       .then((reponse) => {
         setEmail("");
         setPassword("");

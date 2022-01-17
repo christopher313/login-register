@@ -8,6 +8,7 @@ import {
   faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import bcrypt from "bcryptjs";
 
 //Chemin vers l'API
 const REGISTER_URL = "/register";
@@ -57,22 +58,24 @@ const Register = () => {
     setErrorMsg("");
   }, [email, password, verifyPassword]);
 
+  //hash mot de passe
+
   //affiche les entrées du formulaire d'inscription
   const handleSubmit = (event) => {
     const testEmail = EMAIL_REGEX.test(email);
     const testPassword = PASSWORD_REGEX.test(password);
+    var salt = bcrypt.genSaltSync(10);
+    var hash = bcrypt.hashSync(password, salt);
 
-    if (!testEmail || !testPassword) {
-      setErrorMsg("entrer invalide");
-      return;
-    }
     console.log(email, password);
     setSuccess(true);
     axios
-      .post(REGISTER_URL, { name: name, email: email })
+      .post(REGISTER_URL, { name: name, email: email, password: hash })
       .then((reponse) => {
-        window.localStorage.setItem("user", { name: name, email: email });
-        console.log(reponse);
+        window.localStorage.setItem("user", {
+          name: name,
+          email: email,
+        });
         setAcceptTerms(true);
       })
       .catch((error) => {
