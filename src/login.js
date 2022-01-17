@@ -28,6 +28,7 @@ function Login() {
   const handleSubmit = (event) => {
     var salt = bcrypt.genSaltSync(10);
     var hash = bcrypt.hashSync(password, salt);
+
     axios
       .post(LOGIN_URL, { email: email, password: hash })
       .then((reponse) => {
