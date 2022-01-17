@@ -224,18 +224,20 @@ const Register = () => {
               placeholder="Vérification du Mot de passe"
               required
             ></input>
-            <label>
-              <Link to="/terms" className="linksPages">
-                <input
-                  name="terms"
-                  type="checkbox"
-                  value={acceptTerms}
-                  onChange={(e) => setAcceptTerms(e.target.value)}
-                  required
-                ></input>
-                J'accepte les termes d'utilisations
-              </Link>
-            </label>
+            <div>
+              <input
+                name="terms"
+                type="checkbox"
+                value={acceptTerms}
+                onChange={(e) => setAcceptTerms(e.target.value)}
+                required
+              ></input>
+              <label>
+                <Link to="/terms" className="linksPageTerms">
+                  J'accepte les termes d'utilisations
+                </Link>
+              </label>
+            </div>
             <button
               disabled={
                 !validEmail || !validPassword || !validMatch ? true : false
