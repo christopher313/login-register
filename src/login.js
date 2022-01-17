@@ -36,7 +36,8 @@ function Login() {
         setPassword("");
         setSuccesMsg(true);
         localStorage.setItem("user", { email: email });
-        console.log(reponse);
+        console.log(reponse.data);
+        console.log(reponse.data.accessToken);
       })
       .catch((error) => {
         console.log(error);

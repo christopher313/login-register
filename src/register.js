@@ -9,6 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import bcrypt from "bcryptjs";
+
 //Chemin vers l'API
 const REGISTER_URL = "/register";
 
@@ -79,7 +80,8 @@ const Register = () => {
           name: name,
           email: email,
         });
-        console.log(reponse);
+        console.log(reponse.data);
+        console.log(reponse.data.accesToken);
         setAcceptTerms(true);
       })
       .catch((error) => {
