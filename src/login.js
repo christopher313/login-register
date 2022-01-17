@@ -39,11 +39,6 @@ function Login() {
         console.log(error);
       });
 
-    console.log(
-      `Email: ${email}
-      Password: ${password}`
-    );
-
     event.preventDefault();
   };
 
@@ -57,7 +52,7 @@ function Login() {
       </HelmetProvider>
       {succesMsg ? (
         <section className="section-login-register">
-          <h1>Connexion réussi</h1>
+          <h1>Connexpn réussi</h1>
         </section>
       ) : (
         <section className="section-login-register">
