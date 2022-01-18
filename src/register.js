@@ -1,13 +1,21 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
+
+//librairie pour changer le header de la page index.html
 import { Helmet, HelmetProvider } from "react-helmet-async";
+/////
 import axios from "./api/axios";
+
+// Effet visuel
 import {
   faCheck,
   faTimes,
   faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+/////
+
+//librairie hashage mot de passe
 import bcrypt from "bcryptjs";
 
 //Chemin vers l'API
@@ -38,7 +46,8 @@ const Register = () => {
 
   const [errorMessage, setErrorMsg] = useState("");
   const [success, setSuccess] = useState(false);
-
+  ///////////////////
+  //paramètres
   useEffect(() => {
     userRef.current.focus();
   }, []);
@@ -58,12 +67,11 @@ const Register = () => {
     setErrorMsg("");
   }, [email, password, verifyPassword]);
 
-  //hash mot de passe
-
-  //affiche les entrées du formulaire d'inscription
+  //envoi enquête
   const handleSubmit = (event) => {
     const testEmail = EMAIL_REGEX.test(email);
     const testPassword = PASSWORD_REGEX.test(password);
+    //hash mot de passe
     var salt = bcrypt.genSaltSync(10);
     var hash = bcrypt.hashSync(password, salt);
 
@@ -90,6 +98,7 @@ const Register = () => {
 
     event.preventDefault();
   };
+  ////////////////
 
   //Formulaire d'inscription
   return (
@@ -140,6 +149,7 @@ const Register = () => {
                 <FontAwesomeIcon icon={faTimes} />
               </span>
             </label>
+
             <input
               autoComplete="off"
               ref={userRef}
@@ -175,6 +185,7 @@ const Register = () => {
                 <FontAwesomeIcon icon={faTimes} />
               </span>
             </label>
+
             <input
               name="password"
               type="password"
@@ -215,6 +226,7 @@ const Register = () => {
                 <FontAwesomeIcon icon={faTimes} />
               </span>
             </label>
+
             <input
               disabled={!validPassword}
               name="verifypassword"
@@ -224,6 +236,7 @@ const Register = () => {
               placeholder="Vérification du Mot de passe"
               required
             ></input>
+
             <div className="block-terms">
               <input
                 name="terms"
@@ -232,12 +245,14 @@ const Register = () => {
                 onChange={(e) => setAcceptTerms(e.target.value)}
                 required
               ></input>
+
               <label>
                 <Link to="/terms" className="linksPageTerms">
                   J'accepte les termes d'utilisations
                 </Link>
               </label>
             </div>
+
             <button
               disabled={
                 !validEmail || !validPassword || !validMatch ? true : false
@@ -245,6 +260,7 @@ const Register = () => {
             >
               Valider
             </button>
+
             <div>
               <Link to="/login" className="linksPages">
                 Login
@@ -256,5 +272,5 @@ const Register = () => {
     </>
   );
 };
-
+//////////
 export default Register;

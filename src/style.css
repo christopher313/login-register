@@ -24,6 +24,7 @@ body {
   text-decoration: none;
   color: white;
 }
+/*----------------*/
 
 /* partie css pour la connection et l' inscription*/
 
@@ -128,6 +129,7 @@ body {
 .form-login-register .errormessage {
   color: red;
 }
+/*-----------------*/
 
 /* page condtions d'utilisations */
 
@@ -155,3 +157,4 @@ body {
   color: white;
   margin-bottom: 20px;
 }
+/*----------------*/

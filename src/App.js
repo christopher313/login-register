@@ -1,8 +1,13 @@
+//importation des fichiers local
 import React from "react";
 import Login from "./login.js";
 import Register from "./register.js";
 import Terms from "./terms.js";
+////
+
 import { BrowserRouter, Link, Route } from "react-router-dom";
+
+//librairie pour changer le header de la page index.html
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
 function App() {
@@ -16,6 +21,7 @@ function App() {
   );
 }
 
+//Affiche la barre de navigation
 function Home() {
   return (
     <>

@@ -1,8 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from "./api/axios";
+
+//librairie pour changer le header de la page index.html
 import { Helmet, HelmetProvider } from "react-helmet-async";
+///
+
 import { Link } from "react-router-dom";
+
+//librairie pour le hashage
 import bcrypt from "bcryptjs";
+////
 
 const LOGIN_URL = "/login";
 
@@ -16,7 +23,9 @@ function Login() {
   const [password, setPassword] = useState("");
   const [errMsg, setErrorMsg] = useState("");
   const [succesMsg, setSuccesMsg] = useState(false);
+  //////////////
 
+  /*paramètre*/
   useEffect(() => {
     userRef.current.focus();
   }, []);
@@ -24,11 +33,14 @@ function Login() {
   useEffect(() => {
     setErrorMsg("");
   }, [email, password]);
-  //affiche les entrées du formulaire d'inscription
+
+  //
   const handleSubmit = (event) => {
+    //système de hashage de mot de passe
     var salt = bcrypt.genSaltSync(10);
     var hash = bcrypt.hashSync(password, salt);
 
+    //requête poste
     axios
       .post(LOGIN_URL, { email: email, password: hash })
       .then((reponse) => {
@@ -45,8 +57,9 @@ function Login() {
 
     event.preventDefault();
   };
+  /////////////////
 
-  //Formulaire d'inscription
+  //Le formulaire
   return (
     <>
       <HelmetProvider>
@@ -103,5 +116,6 @@ function Login() {
     </>
   );
 }
+//////////////
 
 export default Login;
