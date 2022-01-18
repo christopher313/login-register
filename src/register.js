@@ -224,7 +224,7 @@ const Register = () => {
               placeholder="Vérification du Mot de passe"
               required
             ></input>
-            <div>
+            <div className="block-terms">
               <input
                 name="terms"
                 type="checkbox"

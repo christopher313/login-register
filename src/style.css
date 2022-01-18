@@ -55,8 +55,17 @@ body {
 
 .form-login-register .linksPageTerms {
   color: white;
+}
+
+.block-terms {
   display: flex;
   justify-content: space-between;
+  margin-right: auto;
+}
+
+.form-login-register input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
 }
 
 .form-login-register input[type="text"] {

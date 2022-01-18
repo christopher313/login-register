@@ -26,7 +26,7 @@ function Home() {
       </HelmetProvider>
       <nav className="nav-accueil">
         <div>
-          <Link to="/" className="linksPagesAccueil">
+          <Link to="/Accueil" className="linksPagesAccueil">
             Accueil
           </Link>
         </div>
