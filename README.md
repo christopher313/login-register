@@ -12,7 +12,7 @@ Lancer en premier le fichier Le fichier executeLogin-register, puis Le fichier E
 
 ---
 
-- Le fichier ExecuteJson-server.bat, permet de lancer un serveur json qui reçoit les informations des formulaires de connexion et d'inscription pour faire des testes.
+- Le fichier ExecuteJson-server.bat, permet de lancer un serveur json qui reçoit les informations des formulaires de connexion et d'inscription pour faire des tests.
 
 - Le fichier executeLogin-register, permet de lancer l'application où on retrouve le formulaire de connexion et d'inscription.
 
