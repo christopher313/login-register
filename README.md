@@ -23,3 +23,4 @@ Lancer en premier le fichier Le fichier executeLogin-register, puis Le fichier E
 ---
 
 Pour changer le chemin d'envoi des requêtes selon vos préférences. Vous pouvez changer le chemin dans le fichier api, axios.js.
+Le projet a besoin pour démarrer des dépendances qui sont spécifiées dans package.json.
