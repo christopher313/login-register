@@ -23,4 +23,5 @@ Lancer en premier le fichier Le fichier executeLogin-register, puis Le fichier E
 ---
 
 Pour changer le chemin d'envoi des requêtes selon vos préférences. Vous pouvez changer le chemin dans le fichier api, axios.js.
-Le projet a besoin pour démarrer des dépendances qui sont spécifiées dans package.json. Faites la commande "npm list" dans votre terminal pour voir les dépendances que vous avez installées.
+Le projet a besoin pour démarrer des dépendances qui sont spécifiées dans package.json. Faites la commande "npm i" dans votre terminal et dans le chemin racine du projet.
+la commande "npm list" permet de voir les dépendances que vous avez installées.
